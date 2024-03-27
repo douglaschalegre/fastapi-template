@@ -1,7 +1,7 @@
 '''Database config package'''
 import os
 from typing import Any
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, URL, util
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
@@ -16,15 +16,24 @@ db: dict[str, Any] = dict(
     password=os.getenv('PASS_DB'),
     host=os.getenv('HOST_DB'),
     port=os.getenv('PORT_DB') or 5432,
-    schema=os.getenv('SCHEMA_DB') or f'app_{application["id"].split("-")[2]}',
+    schema=os.getenv('SCHEMA_DB') or 'postgres',
     name=os.getenv('NAME_DB')
 )
 
 
-def build_db_url(params: dict[str, Any]) -> str:
+def build_db_url(params: dict[str, Any]) -> URL:
     '''build db url'''
-    return (f'postgresql://{params["user"]}:{params["password"]}@{params["host"]}:{params["port"]}'
-            f'/{params["name"]}?application_name={application["id"]}')
+    return URL(
+        drivername='postgresql',
+        username=params["user"],
+        password=params["password"],
+        database=params["name"],
+        host=params["host"],
+        port=params["port"],
+        query=util.immutabledict(
+            dict(application_name=application["id"])
+        )
+    )
 
 
 db['url'] = build_db_url(db)
