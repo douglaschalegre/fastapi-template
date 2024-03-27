@@ -62,7 +62,6 @@ Service {application["id"]} is available on port {port}:
     -> Custom:
         APP_ID: {application["id"]}
         APP_NAME: {application["name"]}
-        IS_APP_TOKEN_DEFINED: {valuable(application["token"])}
         ENVIRONMENT: {environment}
 
   Docs (Swagger) available on: http://localhost:{port}{base_url or ""}{app.docs_url}.
