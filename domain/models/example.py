@@ -12,7 +12,7 @@ class Example(GenericBase):
     __tablename__ = 'example'
 
     id = Column('exam_id', UUID(as_uuid=True),
-                UUID(as_uuid=True), default=uuid4, primary_key=True)
+                default=uuid4, primary_key=True)
     created_at = Column('exam_created_at', DateTime,
                         server_default=text('NOW()'))
 
