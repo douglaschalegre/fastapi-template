@@ -1,5 +1,5 @@
 """Generic classes and resources for schema building."""
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from utils.camel import to_camel
 
@@ -14,6 +14,6 @@ class GenericSchema(BaseModel):
 
 class TableSchema(GenericSchema):
     """Class for schemas based on database table.."""
-    class Config:
-        """Schema config class"""
-        orm_mode = True
+    model_config = ConfigDict(
+        from_attributes=True
+    )
