@@ -1,4 +1,4 @@
-'''Model for adjacent task'''
+'''Model for child of example'''
 from uuid import uuid4
 from sqlalchemy import Column, DateTime, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
