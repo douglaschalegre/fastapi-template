@@ -109,20 +109,20 @@ class RedirectToOtherApi:
             files = await read_formdata(request)
             body = await read_json(request)
 
-        response = raw_request(
-            method=method,
-            url=f'{url}{path}?{query}',
-            headers={
-                'Authorization': f'Bearer {token}'
-            },
-            files=files if files is not None else None,
-            json=body if body is not None else None,
-            timeout=300
-        )
+            response = raw_request(
+                method=method,
+                url=f'{url}{path}?{query}',
+                headers={
+                    'Authorization': f'Bearer {token}'
+                },
+                files=files if files is not None else None,
+                json=body if body is not None else None,
+                timeout=300
+            )
 
-        if response.status_code == 200:
-            return JSONResponse(
-                status_code=response.status_code,
-                content='' if response.text == '' else response.json())
+            if response.status_code == 200:
+                return JSONResponse(
+                    status_code=response.status_code,
+                    content='' if response.text == '' else response.json())
 
         return await call_next(request)
