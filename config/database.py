@@ -10,6 +10,9 @@ from .env import application
 
 load_dotenv()
 
+# Environment variables might change depending on the chosen database.
+# Make sure to setup your .env file accordingly.
+# You might need to change the declarative_base on domain/models/generic.py
 
 db: dict[str, Any] = dict(
     user=os.getenv('USER_DB'),
