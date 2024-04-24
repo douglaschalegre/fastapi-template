@@ -18,7 +18,7 @@ It's also possible to add more layers if responsibilities grow within a specific
 
 Install [Python](https://www.python.org/downloads/) (version 3.10).
 
-## Set and activate virtual environment
+## Set and activate virtual environment ⚙
 
 In project folder, execute the following commands:
 
@@ -30,7 +30,7 @@ pipenv shell
 source .venv/Scripts/activate
 ```
 
-## Set environment variables
+## Set environment variables ⚙
 
 Create a .env file with the required environment variables see [.env.example]
 
@@ -42,7 +42,7 @@ Run the following installation command:
 pipenv install --dev
 ```
 
-## Run server
+## Run server 🚀
 
 On virtual environment, execute
 
@@ -50,6 +50,6 @@ On virtual environment, execute
 pipenv run start
 ```
 
-## Documentation
+## Documentation 📚
 
 While running the server, one can access the [API documentation](http://localhost:1337/docs).
