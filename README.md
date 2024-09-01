@@ -53,3 +53,7 @@ pipenv run start
 ## Documentation 📚
 
 While running the server, one can access the [API documentation](http://localhost:1337/docs).
+
+## TO DO 🛠
+- [ ] Improve middleware inclusion on app
+- [ ] Add profiler (pyinstrument)
