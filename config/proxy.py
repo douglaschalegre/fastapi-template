@@ -1,4 +1,4 @@
-'''Config for proxy/redirecter'''
+"""Config for proxy/redirecter"""
 
 # Base path to force a redirect to other API
 BASE_PATH = '/redirect'

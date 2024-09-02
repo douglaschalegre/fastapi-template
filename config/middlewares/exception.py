@@ -23,7 +23,7 @@ def register_exception_collector(app: FastAPI):
 
     app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 
-    @app.middleware("http")
+    @app.middleware('http')
     async def exception_collector(request: Request, call_next):
         """Middleware to collect and handle exceptions from Exception to JSON Response."""
         try:
@@ -31,14 +31,12 @@ def register_exception_collector(app: FastAPI):
             return response
         except Exception as err:
             if isinstance(err, HTTPException):
-                return JSONResponse(
-                    status_code=err.status_code, content=dict(message=err.detail)
-                )
+                return JSONResponse(status_code=err.status_code, content=dict(message=err.detail))
             if isinstance(err, SbwbException):
                 return JSONResponse(
                     status_code=err.status_code,
                     content=dict(
-                        message="An error occurred in a SubWEB resource consumption.",
+                        message='An error occurred in a SubWEB resource consumption.',
                         detail=err.message,
                     ),
                 )
@@ -46,7 +44,7 @@ def register_exception_collector(app: FastAPI):
                 return JSONResponse(
                     status_code=err.status_code,
                     content=dict(
-                        message="An error occurred in a Squid resource consumption.",
+                        message='An error occurred in a Squid resource consumption.',
                         detail=err.message,
                     ),
                 )
@@ -54,5 +52,5 @@ def register_exception_collector(app: FastAPI):
             detail = traceback.format_exc()
             return JSONResponse(
                 status_code=500,
-                content=dict(message="Internal server error", detail=detail),
+                content=dict(message='Internal server error', detail=detail),
             )

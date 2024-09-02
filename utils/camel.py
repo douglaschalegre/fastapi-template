@@ -1,4 +1,4 @@
-'''Parser snake_case to camelCase'''
+"""Parser snake_case to camelCase"""
 
 
 def to_camel(snake_str: str | None = None):

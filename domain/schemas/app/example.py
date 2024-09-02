@@ -1,10 +1,10 @@
-'''Example schema'''
-from domain.schemas.orm import (
-    ExampleBase
-)
+"""Example schema"""
+
+from domain.schemas.orm import ExampleBase
 from .child import Child
 
 
 class Example(ExampleBase):
-    '''Example schema'''
+    """Example schema"""
+
     childs: list[Child]

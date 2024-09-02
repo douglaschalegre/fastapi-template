@@ -5,7 +5,6 @@ from . import example
 
 routes = [
     example.router,
-
     health.router,  # health route must be the last one!
 ]
 tags = [

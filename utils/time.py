@@ -1,10 +1,11 @@
-'''Utils for handling time.'''
+"""Utils for handling time."""
+
 from datetime import datetime
 import pytz
 
 
 def seconds_to_formated_hours(seconds):
-    '''Convert seconds to a formated time'''
+    """Convert seconds to a formated time"""
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
     seconds = int(seconds % 60)
@@ -13,6 +14,5 @@ def seconds_to_formated_hours(seconds):
 
 
 def now():
-    '''Return current datetime with UTC 0'''
-    return str(datetime.now(
-        pytz.utc).isoformat())
+    """Return current datetime with UTC 0"""
+    return str(datetime.now(pytz.utc).isoformat())

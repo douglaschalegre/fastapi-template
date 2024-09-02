@@ -1,6 +1,6 @@
-'''Utils to validate variables.'''
+"""Utils to validate variables."""
 
 
 def valuable(value):
-    '''Check if value if None'''
+    """Check if value if None"""
     return value is not None

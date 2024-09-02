@@ -1,2 +1,3 @@
-'''Exporting repositories of the app module'''
+"""Exporting repositories of the app module"""
+
 from .example import *

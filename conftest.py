@@ -1,1 +1,1 @@
-'''Configuration file for pytest'''
+"""Configuration file for pytest"""

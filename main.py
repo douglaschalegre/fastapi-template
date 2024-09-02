@@ -18,15 +18,15 @@ Description of the service
 """
 
 app = FastAPI(
-    title=application["name"],
+    title=application['name'],
     description=DESCRIPTION,
-    version="0.0.1",
+    version='0.0.1',
     contact={
-        "name": "Example",
-        "url": "https://example.com.br",
-        "email": "example@example.com",
+        'name': 'Example',
+        'url': 'https://example.com.br',
+        'email': 'example@example.com',
     },
-    swagger_ui_parameters={"defaultModelsExpandDepth": -1},
+    swagger_ui_parameters={'defaultModelsExpandDepth': -1},
     responses=base_errors,
 )
 
@@ -35,7 +35,7 @@ register_middlewares(app)
 for router in routes:
     app.include_router(router)
 
-app.openapi = extend_openapi(app, base_url or "", tags=tags)
+app.openapi = extend_openapi(app, base_url or '', tags=tags)
 
 api = FastAPI(openapi_url=None)
 api.mount(base_url, app)
@@ -65,7 +65,7 @@ Service {application["id"]} is available on port {port}:
   Docs (Swagger) available on: http://localhost:{port}{base_url or ""}{app.docs_url}.
 """)
 
-reload = environment.lower() != "prd"
+reload = environment.lower() != 'prd'
 
-if __name__ == "__main__":
-    uvicorn.run("main:api", host="0.0.0.0", port=port, reload=reload)
+if __name__ == '__main__':
+    uvicorn.run('main:api', host='0.0.0.0', port=port, reload=reload)

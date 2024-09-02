@@ -1,2 +1,3 @@
-'''Exporting services of the app module'''
+"""Exporting services of the app module"""
+
 from .example import *
