@@ -12,6 +12,7 @@ python-jose = {extras = ["cryptography"], version = "==3.3.0"}
 pytz = "==2023.3"
 cachetools = "==5.3.1"
 pyinstrument = "4.7.2"
+alembic = "*"
 
 [dev-packages]
 ruff = "==0.4.1"
@@ -34,3 +35,5 @@ test = "bash -c 'export MSYS2_ENV_CONV_EXCL='*' && export ENABLE_DB_TESTS='0' &&
 test-db = "bash -c 'export MSYS2_ENV_CONV_EXCL='*' && export ENABLE_DB_TESTS='1' && coverage run --branch -m pytest --report-log='tests/result.log' && coverage report'"
 test-html= "bash -c 'export MSYS2_ENV_CONV_EXCL='*' && export ENABLE_DB_TESTS='0' && coverage run --branch -m pytest && coverage html'"
 test-db-html= "bash -c 'export MSYS2_ENV_CONV_EXCL='*' && export ENABLE_DB_TESTS='1' && coverage run --branch -m pytest && coverage html'"
+generate-migrations = "alembic revision --autogenerate"
+apply-migrations = "alembic upgrade head"
