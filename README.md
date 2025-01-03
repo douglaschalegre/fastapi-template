@@ -55,5 +55,8 @@ pipenv run start
 While running the server, one can access the [API documentation](http://localhost:1337/docs).
 
 ## TO DO 🛠
-- [ ] Improve middleware inclusion on app
-- [ ] Add profiler (pyinstrument)
+- [ X ] Improve middleware inclusion on app
+- [ X ] Add profiler (pyinstrument)
+- [ ] Add generic JWT Auth
+- [ ] Add endpoints that require auth
+- [ ] Add alembic setup
