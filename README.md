@@ -59,4 +59,4 @@ While running the server, one can access the [API documentation](http://localhos
 - [X] Add profiler (pyinstrument)
 - [ ] Add generic JWT Auth
 - [ ] Add endpoints that require auth
-- [ ] Add alembic setup
+- [X] Add alembic setup
