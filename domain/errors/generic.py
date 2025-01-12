@@ -58,6 +58,16 @@ class InternalError(GenericError):
         self.response = build_response(self.status_code, self.schema, 'Unexpected internal error.')
 
 
+class UnauthorizedError(GenericError):
+    """401: Requested resource cannot be accessed due to credentials."""
+
+    def __init__(self, resource: str = '<<some-resource>>'):
+        super().__init__(
+            status_code=401,
+            message=f'Requested resource cannot be accessed. Resource: {resource}',
+        )
+
+
 class ResourceNotFoundError(GenericError):
     """404: Requested resource cannot be found."""
 
