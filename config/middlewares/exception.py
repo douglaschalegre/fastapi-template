@@ -4,8 +4,6 @@ import traceback
 from fastapi.responses import JSONResponse
 from fastapi import Request, HTTPException, FastAPI
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from psqd_sdk.domain.exceptions import ConsumerException as SquidConsumerException
-from sbwb_sdk.generics.exceptions import SbwbException
 
 
 async def http_exception_handler(_req, exc) -> JSONResponse:
@@ -32,22 +30,6 @@ def register_exception_collector(app: FastAPI):
         except Exception as err:
             if isinstance(err, HTTPException):
                 return JSONResponse(status_code=err.status_code, content=dict(message=err.detail))
-            if isinstance(err, SbwbException):
-                return JSONResponse(
-                    status_code=err.status_code,
-                    content=dict(
-                        message='An error occurred in a SubWEB resource consumption.',
-                        detail=err.message,
-                    ),
-                )
-            if isinstance(err, SquidConsumerException):
-                return JSONResponse(
-                    status_code=err.status_code,
-                    content=dict(
-                        message='An error occurred in a Squid resource consumption.',
-                        detail=err.message,
-                    ),
-                )
             traceback.print_exc()
             detail = traceback.format_exc()
             return JSONResponse(
