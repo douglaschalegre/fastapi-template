@@ -1,13 +1,16 @@
 """Creation of controller list"""
 
+from .config import router, tags
 from . import health
-from . import example
+
+from .login import *
+from .user import *
 
 routes = [
-    example.router,
+    router,
     health.router,  # health route must be the last one!
 ]
 tags = [
-    *example.tags,
+    *tags,
     *health.tags,  # health tag must be the last one!
 ]

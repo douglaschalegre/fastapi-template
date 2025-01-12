@@ -1,3 +1,5 @@
 """Exporting services of the app module"""
 
-from .example import *
+from .user import *
+from .login import *
+from .auth import *

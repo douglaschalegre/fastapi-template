@@ -7,6 +7,7 @@ from .generic import (
     ResourceAlreadyExists,
     BadRequestError,
     ForbiddenRequestError,
+    UnauthorizedError,
 )
 
 
@@ -17,7 +18,7 @@ base_errors = {
             BadRequestError(),
         ],
     ),
-    **group_errors(401, []),
+    **group_errors(401, [UnauthorizedError()]),
     **group_errors(
         403,
         [

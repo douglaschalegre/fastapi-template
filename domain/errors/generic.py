@@ -59,7 +59,7 @@ class InternalError(GenericError):
 
 
 class ResourceNotFoundError(GenericError):
-    """404: Some requested resource cannot be found."""
+    """404: Requested resource cannot be found."""
 
     def __init__(self, resource: str = '<<some-resource>>'):
         super().__init__(
@@ -69,7 +69,7 @@ class ResourceNotFoundError(GenericError):
 
 
 class ResourceAlreadyExists(GenericError):
-    """409: Some requested resource cannot be found."""
+    """409: Requested resource already exists."""
 
     def __init__(self, resource: str = '<<some-resource>>'):
         super().__init__(
@@ -79,14 +79,14 @@ class ResourceAlreadyExists(GenericError):
 
 
 class BadRequestError(GenericError):
-    """400: Some requested resource cannot be found."""
+    """400: Bad request."""
 
     def __init__(self, resource: str = '<<some-resource>>'):
         super().__init__(status_code=400, message=f'Bad request. Resource: {resource}')
 
 
 class ForbiddenRequestError(GenericError):
-    """403: Some requested resource is Forbidden."""
+    """403: Requested resource is Forbidden."""
 
     def __init__(self, resource: str = '<<some-resource>>'):
         super().__init__(

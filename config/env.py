@@ -23,3 +23,8 @@ if os.getenv('DEBUG_MODE') is not None:
     if DEBUG_MODE and not disable_debug_query:
         logging.basicConfig()
         logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
+
+enable_profiling = (
+    os.getenv('ENABLE_PROFILING').upper() == 'TRUE' if os.getenv('ENABLE_PROFILING') else False
+)
+jwt_secret_key = os.getenv('JWT_SECRET_KEY')

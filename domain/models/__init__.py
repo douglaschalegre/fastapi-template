@@ -1,3 +1,3 @@
 """Exporting all models"""
 
-from .example import *
+from .user import *

@@ -1,4 +1,10 @@
 """Some general config for all controllers"""
 
-# Usually, here i would put some generic messages that could be used in all controllers,
-# like "Resource for finding all items", "Resource for creating a new item", etc.
+from fastapi import APIRouter
+
+LOGIN = dict(name='Login', description='API to manage login of users')
+USER = dict(name='User', description='API to manage users.')
+
+tags = [LOGIN, USER]
+
+router = APIRouter()
