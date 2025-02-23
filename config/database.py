@@ -51,6 +51,7 @@ def get_session():
         yield session
     except Exception:  # pylint: disable=broad-except
         session.rollback()
+        raise
     else:
         session.commit()
     finally:
